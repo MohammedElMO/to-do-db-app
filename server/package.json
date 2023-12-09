@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "start:prod":"node dist/app.js",
+    "build":"npm i && tsc",
     "start": "ts-node --esm src/app.ts"
   },
   "dependencies": {
