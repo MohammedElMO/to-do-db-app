@@ -2,6 +2,7 @@ import { useGetAllToDos } from "../../hooks/useGetAllTodos";
 
 function ToDoView() {
   const { todos } = useGetAllToDos();
+  console.log(todos);
   return (
     <div className="grid grid-cols-4 gap-20">
       {todos.map(({ todo, id }) => (

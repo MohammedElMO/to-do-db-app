@@ -5,16 +5,20 @@
   "type": "module",
   "scripts": {
     "start:prod": "node dist/app.js",
+    "start": "ts-node --esm src/app.ts",
     "build": "npm i && tsc"
   },
   "dependencies": {
+    "@vercel/postgres": "^0.5.1",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "http-errors": "~1.6.3",
     "mysql": "^2.18.1",
     "mysql2": "^3.6.5",
-    "pg": "^8.11.3"
+    "pg": "^8.11.3",
+    "postgres": "^3.4.3"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.6",

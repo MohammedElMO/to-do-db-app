@@ -1,5 +1,4 @@
 import Search from "../assets/icons/Search";
-import WhatToDo from "../assets/icons/what-to-do";
 
 function SearchToDo() {
   return (

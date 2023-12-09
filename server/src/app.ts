@@ -1,8 +1,7 @@
 import express, { json, Request } from "express";
-// import db from "./services/db-connection.js";
-import { Query } from "mysql2";
 import cors from "cors";
-import { client } from "./services/db-connection.js";
+import "dotenv/config";
+import pool from "./services/db-connection.js";
 
 let app = express();
 
@@ -10,41 +9,22 @@ app.use(json());
 app.use(
   cors({
     origin: "*",
-    // optionsSuccessStatus: 200,
   })
 );
 
-// app.get("/api/city", async (req: Request, res) => {
-//   console.log(req.query.champ);
-//   const query = db.query(
-//     "SELECT name FROM city where name LIKE '%k%' limit 10",
-//     (err, results, fields) => {
-//       res.send(results);
-//       console.log(fields);
-//       console.log(err);
-//     }
-//   );
-
-//   query.on("end", () => console.log("done"));
-// });
-
 app.post("/api/saveToDo", async (req: Request, res) => {
-  console.log(req.body);
-  await client.connect();
-  const query = await client.query(
-    "insert into todos (id,todo) values (null,$1)",
-    [req.body.todo]
-  );
-
-  res.send(query.fields);
+  const query = await pool.sql`
+    insert into todos (Id,Todo) values (${req.body.id},${req.body.todo})
+   `;
+  console.log(query.rows);
+  res.send("great");
 });
 
 app.get("/api/todos", async (req: Request, res) => {
-  await client.connect();
-  const query = await client.query("SELECT * FROM todos");
+  const query = await pool.sql`
+    SELECT * FROM todos `;
 
-  res.send(query.fields);
-  console.log(query.rows[0]);
+  res.send(query.rows);
 });
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log("opened server onport 3000..."));

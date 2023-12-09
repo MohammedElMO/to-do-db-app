@@ -1,15 +1,8 @@
-import { Connection, createConnection } from "mysql2";
-// import mysql from 'mysql2/promise';
-import { Client } from "pg";
+import postgres from "postgres";
+import { createPool } from "@vercel/postgres";
 
-const connection: Connection = createConnection({
-  host: "localhost",
-  user: "root",
-  database: "world",
-  port: 3305,
-  password: "root",
+const pool = createPool({
+  connectionString: process.env.POSTGRES_URL,
 });
 
-export const client = new Client({ ssl: true });
-
-export default connection;
+export default pool

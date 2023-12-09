@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { toDoInstance } from "../services/todo-service";
 
-export const useCreateToDo = (todo: string) => {
+export const useCreateToDo = (todo: {
+  id:number,
+  todo:string
+}) => {
   const create = async () => {
     await toDoInstance().sendToDo(todo);
   };

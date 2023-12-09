@@ -9,10 +9,10 @@ class TODoService {
   public connection: string = "";
   constructor() {}
 
-  async sendToDo(todo: string) {
+  async sendToDo(todo: { id: number; todo: string }) {
     // saveToDo
     try {
-      const res = await clientApi.post<{ todo: string }>("/saveToDo", { todo });
+      const res = await clientApi.post<{ todo: string }>("/saveToDo", todo);
       if (res.status == 200) console.log("success ");
 
       return res.data;

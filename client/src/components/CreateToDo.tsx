@@ -4,7 +4,10 @@ import WhatToDo from "../assets/icons/what-to-do";
 
 function CreateToDo() {
   const [todo, setTodo] = useState<string>("");
-  const todoCreate = useCreateToDo(todo);
+  const todoCreate = useCreateToDo({
+    todo,
+    id: 10,
+  });
 
   const onSubmitToDo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
