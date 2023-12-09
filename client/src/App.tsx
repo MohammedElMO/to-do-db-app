@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  createBrowserRouter,
+} from "react-router-dom";
+import CreateToDo from "./components/CreateToDo";
+import ToDoView from "./components/routes/todoView";
+import SideBar from "./components/sideBar";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <></>,
+    },
+    {
+      path: "todos",
+      element: <ToDoView />,
+    },
+    {
+      path: "*",
+      element: <SideBar />,
+    },
+  ]);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      {/* <BrowserRouter /> */}
+
+      <main className="bg h-screen flex flex-col justify-center items-center">
+        <SideBar />
+        <Routes>
+          <Route element={<CreateToDo />} path="/" />
+          <Route element={<ToDoView />} path="todos" />
+        </Routes>
+      </main>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
