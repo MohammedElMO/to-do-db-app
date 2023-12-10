@@ -6,7 +6,7 @@
   "scripts": {
     "start:prod": "node dist/app.js",
     "start": "ts-node --esm src/app.ts",
-    "build": "npm i; tsc"
+    "build": "npm i"
   },
   "engines" : { 
     "node" : "=18.18.2"
