@@ -6,7 +6,10 @@
   "scripts": {
     "start:prod": "node dist/app.js",
     "start": "ts-node --esm src/app.ts",
-    "build": "npm i ;ts-node --esm src/app.ts"
+    "build": "npm i; tsc"
+  },
+  "engines" : { 
+    "node" : "=18.18.2"
   },
   "dependencies": {
     "@vercel/postgres": "^0.5.1",
