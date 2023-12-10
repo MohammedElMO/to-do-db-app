@@ -14,7 +14,7 @@ app.use(
 
 app.post("/api/saveToDo", async (req: Request, res) => {
   const query = await pool.sql`
-    insert into todos (Id,Todo) values (${req.body.id},${req.body.todo})
+    insert into todos (Id,Todo) values (nextval('pg_seq'),${req.body.todo})
    `;
   console.log(query.rows);
   res.send("great");
