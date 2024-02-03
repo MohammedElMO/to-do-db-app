@@ -1,8 +1,6 @@
-import postgres from "postgres";
-import { createPool } from "@vercel/postgres";
+import mysql from "mysql2/promise"
 
-const pool = createPool({
-  connectionString: process.env.POSTGRES_URL,
-});
 
-export default pool
+const  db =await  mysql.createConnection(process.env.MYSQL_DB_NAME!)
+
+export default db

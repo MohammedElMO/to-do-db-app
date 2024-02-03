@@ -1,6 +1,6 @@
 import Search from "../assets/icons/Search";
 
-function SearchToDo() {
+function SearchForAToDo() {
   return (
     <section className="flex w-full items-center p-20 pb-10 justify-center  ">
       <input
@@ -13,4 +13,4 @@ function SearchToDo() {
   );
 }
 
-export default SearchToDo;
+export default SearchForAToDo;

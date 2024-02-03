@@ -8,8 +8,8 @@
     "start": "ts-node --esm src/app.ts",
     "build": "npm i"
   },
-  "engines" : { 
-    "node" : "=18.18.2"
+  "engines": {
+    "node": "=18.18.2"
   },
   "dependencies": {
     "@vercel/postgres": "^0.5.1",
@@ -19,7 +19,7 @@
     "express": "^4.18.2",
     "http-errors": "~1.6.3",
     "mysql": "^2.18.1",
-    "mysql2": "^3.6.5",
+    "mysql2": "^3.9.1",
     "pg": "^8.11.3",
     "postgres": "^3.4.3"
   },

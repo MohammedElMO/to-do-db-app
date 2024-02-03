@@ -6,24 +6,19 @@ export type ToDo = {
 };
 
 class TODoService {
-  public connection: string = "";
-  constructor() {}
-
   async sendToDo(todo: { id: number; todo: string }) {
     // saveToDo
     try {
       const res = await clientApi.post<{ todo: string }>("/saveToDo", todo);
-      if (res.status == 200) console.log("success ");
 
       return res.data;
     } catch (error) {
-      console.log(error);
+      throw new Error("error happend");
     }
   }
   async getAllToDos() {
     try {
       const res = await clientApi.get<ToDo[]>("/todos");
-      if (res.status == 200) console.log("success ");
       return res.data;
     } catch (error) {
       console.log(error);

@@ -1,25 +1,16 @@
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  // createBrowserRouter,
-} from "react-router-dom";
-import CreateToDo from "./components/CreateToDo";
-import SideBar from "./components/sideBar";
-import ToDoView from "./components/routes/ToDoView";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import TopBar from "./components/layout/ToBar";
+import IntroToDosPage from "./components/routes/IntroToDosPage";
+import CreateToDo from "./components/routes/CreateToDo";
 
 function App() {
   return (
     <BrowserRouter>
-      {/* <BrowserRouter /> */}
-
-      <main className="bg h-screen flex flex-col justify-center items-center">
-        <SideBar />
-        <Routes>
-          <Route element={<CreateToDo />} path="/" />
-          <Route element={<ToDoView />} path="todos" />
-        </Routes>
-      </main>
+      <TopBar />
+      <Routes>
+        <Route element={<IntroToDosPage />} path="/" />
+        <Route element={<CreateToDo />} path="/enovateTodo" />
+      </Routes>
     </BrowserRouter>
   );
 }
